@@ -1,0 +1,16 @@
+Spalte;Typ;Beschreibung
+stichtag;numerisch;TTMMJJJJ
+
+stad_name;Zeichenfolge;Name der Stadtbezirke
+stad_id_k;numerisch;Kurz-ID der Stadtbezirke
+
+stat_name;Zeichenfolge;Name der Statistischen Bezirke
+stat_id;Zeichenfolge;ID der Statistischen Bezirke
+stat_id_k;Zeichenfolge;Kurz-ID der Statistischen Bezirke
+
+geschlecht;numerisch;"Geschlecht (1 : m�nnlich; 2: weiblich; 3: gesamt)"
+altersgruppen4;numerisch;"Altersgruppen in Jahren (1: unter 18 Jahre; 2: 18 bis unter 65 Jahre; 3: 65 bis unter 80; 4: 80 Jahre und �lter)"
+einwohnerzahl;numerisch;Einwohnerzahl
+;;
+Der Quellenvermerk ist bei jeder Nutzung erforderlich und in diesem Fall wie folgt auszugestalten:;;
+� Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0);;
