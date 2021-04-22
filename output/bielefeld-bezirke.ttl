@@ -1,14 +1,19 @@
-@prefix bezirk: <http://example.com/code4bielefeld/kg/bezirk/> .
-@prefix statBezirk: <http://example.com/code4bielefeld/kg/stat_bezirk/> .
+@prefix bezirk: <http://know.bielefeld.de/bezirk/> .
 @prefix bi: <http://example.com/code4bielefeld/kg/vocab#> .
-@prefix losdb: <http://example.com/code4bielefeld/losdb/vocab#> .
-@prefix dc: <http://purl.org/dc/terms/> .
 @prefix cube: <http://purl.org/linked-data/cube#> .
-@prefix schema: <http://schema.org/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix losdb: <http://example.com/code4bielefeld/losdb/vocab#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <http://schema.org/> .
+@prefix sdmx_code: <http://purl.org/linked-data/sdmx/2009/code#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix statBezirk: <http://know.bielefeld.de/stat_bezirk/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 bezirk:Brackwede
     a schema:AdministrativeArea ;
@@ -50,362 +55,362 @@ bezirk:Stieghorst
     a schema:AdministrativeArea ;
     rdfs:label "Stieghorst" .
 
-statBezirk:01
+statBezirk:05711000001
     a schema:Place ;
     rdfs:label "Alt- und Neustadt" ;
     bi:bezirk bezirk:Mitte .
 
-statBezirk:02
+statBezirk:05711000002
     a schema:Place ;
     rdfs:label "Kesselbrink" ;
     bi:bezirk bezirk:Mitte .
 
-statBezirk:03
+statBezirk:05711000003
     a schema:Place ;
     rdfs:label "Pauluskirche" ;
     bi:bezirk bezirk:Mitte .
 
-statBezirk:04
+statBezirk:05711000004
     a schema:Place ;
     rdfs:label "Dürkopp" ;
     bi:bezirk bezirk:Mitte .
 
-statBezirk:05
+statBezirk:05711000005
     a schema:Place ;
     rdfs:label "Landgericht" ;
     bi:bezirk bezirk:Mitte .
 
-statBezirk:06
+statBezirk:05711000006
     a schema:Place ;
     rdfs:label "Siegfriedplatz (inkl. Upmannstift)" ;
     bi:bezirk bezirk:Mitte .
 
-statBezirk:07
+statBezirk:05711000007
     a schema:Place ;
     rdfs:label "Nordpark" ;
     bi:bezirk bezirk:Mitte .
 
-statBezirk:08
+statBezirk:05711000008
     a schema:Place ;
     rdfs:label "Stadtwerke" ;
     bi:bezirk bezirk:Mitte .
 
-statBezirk:09
+statBezirk:05711000009
     a schema:Place ;
     rdfs:label "Güterbahnhof-Ost" ;
     bi:bezirk bezirk:Mitte .
 
-statBezirk:10
+statBezirk:05711000010
     a schema:Place ;
     rdfs:label "Hammer-Mühle" ;
     bi:bezirk bezirk:Mitte .
 
-statBezirk:11
+statBezirk:05711000011
     a schema:Place ;
     rdfs:label "Königsbrügge (i.Betriebs. Sieker)" ;
     bi:bezirk bezirk:Mitte .
 
-statBezirk:12
+statBezirk:05711000012
     a schema:Place ;
     rdfs:label "Brands Busch" ;
     bi:bezirk bezirk:Mitte .
 
-statBezirk:13
+statBezirk:05711000013
     a schema:Place ;
     rdfs:label "Stauteiche (inkl. Großmarkt)" ;
     bi:bezirk bezirk:Mitte .
 
-statBezirk:14
+statBezirk:05711000014
     a schema:Place ;
     rdfs:label "Heeper Fichten" ;
     bi:bezirk bezirk:Mitte .
 
-statBezirk:15
+statBezirk:05711000015
     a schema:Place ;
     rdfs:label "Fuhrpark (inkl. Kammerratsheide)" ;
     bi:bezirk bezirk:Mitte .
 
-statBezirk:16
+statBezirk:05711000016
     a schema:Place ;
     rdfs:label "Bauerschaft Schildesche" ;
     bi:bezirk bezirk:Mitte .
 
-statBezirk:17
+statBezirk:05711000117
     a schema:Place ;
     rdfs:label "Vorwerk Schildesche" ;
     bi:bezirk bezirk:Schildesche .
 
-statBezirk:18
+statBezirk:05711000118
     a schema:Place ;
     rdfs:label "Schildesche" ;
     bi:bezirk bezirk:Schildesche .
 
-statBezirk:19
+statBezirk:05711000119
     a schema:Place ;
     rdfs:label "Johannesstift" ;
     bi:bezirk bezirk:Schildesche .
 
-statBezirk:20
+statBezirk:05711000120
     a schema:Place ;
     rdfs:label "Sudbrack" ;
     bi:bezirk bezirk:Schildesche .
 
-statBezirk:21
+statBezirk:05711000121
     a schema:Place ;
     rdfs:label "Untertheesen" ;
     bi:bezirk bezirk:Schildesche .
 
-statBezirk:22
+statBezirk:05711000122
     a schema:Place ;
     rdfs:label "Bültmannskrug" ;
     bi:bezirk bezirk:Schildesche .
 
-statBezirk:23
+statBezirk:05711000123
     a schema:Place ;
     rdfs:label "Gellershagen" ;
     bi:bezirk bezirk:Schildesche .
 
-statBezirk:24
+statBezirk:05711000124
     a schema:Place ;
     rdfs:label "Bültmannshof" ;
     bi:bezirk bezirk:Schildesche .
 
-statBezirk:25
+statBezirk:05711000125
     a schema:Place ;
     rdfs:label "Universität (inkl. Sieben Hügel)" ;
     bi:bezirk bezirk:Schildesche .
 
-statBezirk:26
+statBezirk:05711000226
     a schema:Place ;
     rdfs:label "Johannistal" ;
     bi:bezirk bezirk:Gadderbaum .
 
-statBezirk:27
+statBezirk:05711000227
     a schema:Place ;
     rdfs:label "Bethel" ;
     bi:bezirk bezirk:Gadderbaum .
 
-statBezirk:28
+statBezirk:05711000228
     a schema:Place ;
     rdfs:label "Eggeweg (inkl. Osningpaß)" ;
     bi:bezirk bezirk:Gadderbaum .
 
-statBezirk:29
+statBezirk:05711000329
     a schema:Place ;
     rdfs:label "Rosenhöhe" ;
     bi:bezirk bezirk:Brackwede .
 
-statBezirk:30
+statBezirk:05711000330
     a schema:Place ;
     rdfs:label "Kammerich" ;
     bi:bezirk bezirk:Brackwede .
 
-statBezirk:31
+statBezirk:05711000331
     a schema:Place ;
     rdfs:label "Frerks Hof" ;
     bi:bezirk bezirk:Brackwede .
 
-statBezirk:32
+statBezirk:05711000332
     a schema:Place ;
     rdfs:label "Brackwede-Mitte" ;
     bi:bezirk bezirk:Brackwede .
 
-statBezirk:33
+statBezirk:05711000333
     a schema:Place ;
     rdfs:label "Bahnhof-Brackwede" ;
     bi:bezirk bezirk:Brackwede .
 
-statBezirk:34
+statBezirk:05711000334
     a schema:Place ;
     rdfs:label "Kupferhammer" ;
     bi:bezirk bezirk:Brackwede .
 
-statBezirk:35
+statBezirk:05711000335
     a schema:Place ;
     rdfs:label "Brock (inkl. Südwestfeld)" ;
     bi:bezirk bezirk:Brackwede .
 
-statBezirk:36
+statBezirk:05711000336
     a schema:Place ;
     rdfs:label "Ummeln (inkl. Holtkamp)" ;
     bi:bezirk bezirk:Brackwede .
 
-statBezirk:37
+statBezirk:05711000337
     a schema:Place ;
     rdfs:label "Kupferheide" ;
     bi:bezirk bezirk:Brackwede .
 
-statBezirk:38
+statBezirk:05711000338
     a schema:Place ;
     rdfs:label "Quelle" ;
     bi:bezirk bezirk:Brackwede .
 
-statBezirk:39
+statBezirk:05711000439
     a schema:Place ;
     rdfs:label "Hoberge-Uerentrup (i. Wolfskuhle)" ;
     bi:bezirk bezirk:Dornberg .
 
-statBezirk:40
+statBezirk:05711000440
     a schema:Place ;
     rdfs:label "Pappelkrug (inkl. Wellensiek)" ;
     bi:bezirk bezirk:Dornberg .
 
-statBezirk:41
+statBezirk:05711000441
     a schema:Place ;
     rdfs:label "Großdornberg (inkl. Kirchdornberg)" ;
     bi:bezirk bezirk:Dornberg .
 
-statBezirk:42
+statBezirk:05711000442
     a schema:Place ;
     rdfs:label "Babenhausen-Ost" ;
     bi:bezirk bezirk:Dornberg .
 
-statBezirk:43
+statBezirk:05711000443
     a schema:Place ;
     rdfs:label "Babenhausen" ;
     bi:bezirk bezirk:Dornberg .
 
-statBezirk:44
+statBezirk:05711000444
     a schema:Place ;
     rdfs:label "Niederdornberg-Schröttinghausen" ;
     bi:bezirk bezirk:Dornberg .
 
-statBezirk:45
+statBezirk:05711000545
     a schema:Place ;
     rdfs:label "Jöllenbeck-West" ;
     bi:bezirk bezirk:Jöllenbeck .
 
-statBezirk:46
+statBezirk:05711000546
     a schema:Place ;
     rdfs:label "Jöllenbeck-Ost" ;
     bi:bezirk bezirk:Jöllenbeck .
 
-statBezirk:47
+statBezirk:05711000547
     a schema:Place ;
     rdfs:label "Theesen" ;
     bi:bezirk bezirk:Jöllenbeck .
 
-statBezirk:48
+statBezirk:05711000548
     a schema:Place ;
     rdfs:label "Vilsendorf" ;
     bi:bezirk bezirk:Jöllenbeck .
 
-statBezirk:49
+statBezirk:05711000649
     a schema:Place ;
     rdfs:label "Grafenheide" ;
     bi:bezirk bezirk:Heepen .
 
-statBezirk:50
+statBezirk:05711000650
     a schema:Place ;
     rdfs:label "Lämmkenstatt" ;
     bi:bezirk bezirk:Heepen .
 
-statBezirk:51
+statBezirk:05711000651
     a schema:Place ;
     rdfs:label "Welscher (inkl. Jerrendorf)" ;
     bi:bezirk bezirk:Heepen .
 
-statBezirk:52
+statBezirk:05711000652
     a schema:Place ;
     rdfs:label "Baumheide (inkl. Halhof)" ;
     bi:bezirk bezirk:Heepen .
 
-statBezirk:53
+statBezirk:05711000653
     a schema:Place ;
     rdfs:label "Milse" ;
     bi:bezirk bezirk:Heepen .
 
-statBezirk:54
+statBezirk:05711000654
     a schema:Place ;
     rdfs:label "Altenhagen" ;
     bi:bezirk bezirk:Heepen .
 
-statBezirk:55
+statBezirk:05711000655
     a schema:Place ;
     rdfs:label "Windwehe (inkl. Brönninghausen)" ;
     bi:bezirk bezirk:Heepen .
 
-statBezirk:56
+statBezirk:05711000656
     a schema:Place ;
     rdfs:label "Tieplatz" ;
     bi:bezirk bezirk:Heepen .
 
-statBezirk:57
+statBezirk:05711000657
     a schema:Place ;
     rdfs:label "Heeper Holz" ;
     bi:bezirk bezirk:Heepen .
 
-statBezirk:58
+statBezirk:05711000658
     a schema:Place ;
     rdfs:label "Oldentrup-West (i. Oldentrup-Ost)" ;
     bi:bezirk bezirk:Heepen .
 
-statBezirk:59
+statBezirk:05711000759
     a schema:Place ;
     rdfs:label "Dingerdissen" ;
     bi:bezirk bezirk:Stieghorst .
 
-statBezirk:60
+statBezirk:05711000760
     a schema:Place ;
     rdfs:label "Ubbedissen (inkl. Lämershagen)" ;
     bi:bezirk bezirk:Stieghorst .
 
-statBezirk:61
+statBezirk:05711000761
     a schema:Place ;
     rdfs:label "Hillegossen" ;
     bi:bezirk bezirk:Stieghorst .
 
-statBezirk:62
+statBezirk:05711000762
     a schema:Place ;
     rdfs:label "Stieghorst stb" ;
     bi:bezirk bezirk:Stieghorst .
 
-statBezirk:63
+statBezirk:05711000763
     a schema:Place ;
     rdfs:label "Sieker" ;
     bi:bezirk bezirk:Stieghorst .
 
-statBezirk:64
+statBezirk:05711000764
     a schema:Place ;
     rdfs:label "Rütli (inkl. Lonnerbach)" ;
     bi:bezirk bezirk:Stieghorst .
 
-statBezirk:65
+statBezirk:05711000865
     a schema:Place ;
     rdfs:label "Dalbke" ;
     bi:bezirk bezirk:Sennestadt .
 
-statBezirk:66
+statBezirk:05711000866
     a schema:Place ;
     rdfs:label "Eckardtsheim" ;
     bi:bezirk bezirk:Sennestadt .
 
-statBezirk:67
+statBezirk:05711000867
     a schema:Place ;
     rdfs:label "Südstadt" ;
     bi:bezirk bezirk:Sennestadt .
 
-statBezirk:68
+statBezirk:05711000868
     a schema:Place ;
     rdfs:label "Sennestadt (Sennest.-I.,Wrachtr.L.)" ;
     bi:bezirk bezirk:Sennestadt .
 
-statBezirk:69
+statBezirk:05711000969
     a schema:Place ;
     rdfs:label "Schillingshof" ;
     bi:bezirk bezirk:Senne .
 
-statBezirk:70
+statBezirk:05711000970
     a schema:Place ;
     rdfs:label "Buschkamp (inkl. Togdrang)" ;
     bi:bezirk bezirk:Senne .
 
-statBezirk:71
+statBezirk:05711000971
     a schema:Place ;
     rdfs:label "Windelsbleiche" ;
     bi:bezirk bezirk:Senne .
 
-statBezirk:72
+statBezirk:05711000972
     a schema:Place ;
     rdfs:label "Windflöte" ;
     bi:bezirk bezirk:Senne .

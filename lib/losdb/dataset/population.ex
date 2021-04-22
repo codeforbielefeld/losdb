@@ -127,7 +127,7 @@ defmodule LOSDB.Dataset.Population do
       |> RDFS.label(stad_name)
     )
     |> RDF.Graph.add(
-      stat_id_k
+      stat_id
       |> StatBezirk.iri()
       |> RDF.type(Schema.Place)
       |> RDFS.label(stat_name)
