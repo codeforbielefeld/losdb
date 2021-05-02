@@ -29,6 +29,24 @@
 # component properties corresponding to each COG concept that can be used as a measure
 @prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#>.
 
+:refPeriod a rdf:Property, qb:DimensionProperty
+        ; rdfs:label "reference period"@en
+        ; rdfs:subPropertyOf sdmx-dimension:refPeriod
+        ; rdfs:range xsd:gYear
+        ; qb:concept sdmx-concept:refPeriod
+.
+
+:place a rdf:Property, qb:DimensionProperty
+        ; rdfs:label "reference Area"@en
+        ; rdfs:subPropertyOf sdmx-dimension:refArea
+        ; rdfs:range schema:Place
+        ; qb:concept sdmx-concept:refArea
+.
+
+:gender a qb:DimensionProperty, qb:CodedProperty
+        ; qb:codeList sdmx-code:sex
+        ; rdfs:range sdmx-code:Sex
+.
 
 :AgeGroupScheme a skos:ConceptScheme .
 
@@ -63,27 +81,8 @@
         ; rdfs:range :AgeGroup
 .
 
-:refPeriod a rdf:Property, qb:DimensionProperty
-        ; rdfs:label "reference period"@en
-        ; rdfs:subPropertyOf sdmx-dimension:refPeriod
-        ; rdfs:range xsd:gYear
-        ; qb:concept sdmx-concept:refPeriod
-.
-
-:place a rdf:Property, qb:DimensionProperty
-        ; rdfs:label "reference Area"@en
-        ; rdfs:subPropertyOf sdmx-dimension:refArea
-        ; rdfs:range schema:Place
-        ; qb:concept sdmx-concept:refArea
-.
-
-:gender a qb:DimensionProperty, qb:CodedProperty
-        ; qb:codeList sdmx-code:sex
-        ; rdfs:range sdmx-code:Sex
-.
-
-:population  a rdf:Property, qb:MeasureProperty
-        ; rdfs:label "Anzahl Einwohner"@en
+:population a rdf:Property, qb:MeasureProperty
+        ; rdfs:label "Anzahl Einwohner"@de
         ; rdfs:subPropertyOf sdmx-measure:obsValue
         ; rdfs:range xsd:integer
 .
@@ -113,3 +112,59 @@
                        ]
 .
 
+:PeoplePerHouseholdScheme a skos:ConceptScheme .
+
+:PeoplePerHousehold a rdfs:Class, owl:Class
+        ; rdfs:subClassOf skos:Concept
+        ; rdfs:label "Personen per Haushalt"
+.
+
+:OnePersonHousehold a skos:Concept, :PeoplePerHousehold
+        ; rdfs:label "Ein-Personen-Haushalt"@de
+        ; skos:inScheme :PeoplePerHouseholdScheme
+.
+
+:TwoPersonHousehold a skos:Concept, :PeoplePerHousehold
+        ; rdfs:label "Zwei-Personen-Haushalt"@de
+        ; skos:inScheme :PeoplePerHouseholdScheme
+.
+
+:ThreeOrMorePersonHousehold a skos:Concept, :PeoplePerHousehold
+        ; rdfs:label "Drei- oder Mehr-Personen-Haushalt"@de
+        ; skos:inScheme :PeoplePerHouseholdScheme
+.
+
+:peoplePerHousehold a qb:DimensionProperty, qb:CodedProperty
+        ; qb:codeList :PeoplePerHouseholdScheme
+        ; rdfs:range :PeoplePerHousehold
+.
+
+:numberOfHouseholds a rdf:Property, qb:MeasureProperty
+        ; rdfs:label "Anzahl Haushalte"@de
+        ; rdfs:subPropertyOf sdmx-measure:obsValue
+        ; rdfs:range xsd:integer
+.
+
+:PeoplePerHouseholdDataStructure a qb:DataStructureDefinition
+        # The dimensions
+        ; qb:component [ qb:dimension :refPeriod; qb:order 1 ]
+        ; qb:component [ qb:dimension :place; qb:order 2 ]
+        ; qb:component [ qb:dimension :peoplePerHousehold; qb:order 3 ]
+        # The measure
+        ; qb:component [ qb:measure :numberOfHouseholds]
+        # The attributes
+        ; qb:component [
+                           qb:attribute dct:publisher ;
+                           qb:componentAttachment qb:DataSet
+                       ]
+        ; qb:component [
+                           qb:attribute dct:issued ;
+                           qb:componentRequired "true"^^xsd:boolean ;
+                           qb:componentAttachment qb:DataSet
+                       ]
+        ; qb:component [
+                           qb:attribute dct:license ;
+                           qb:componentRequired "true"^^xsd:boolean ;
+                           qb:componentAttachment qb:DataSet
+                       ]
+.
