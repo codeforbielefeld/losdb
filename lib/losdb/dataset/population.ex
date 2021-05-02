@@ -1,17 +1,28 @@
 defmodule LOSDB.Dataset.Population do
-  import RDF.Sigils
-
   alias RDF.XSD
   alias RDF.NS.{RDFS}
-  alias RDF.Vocab.{Schema, DC, CC}
+  alias RDF.Vocab.Schema
   alias LOSDB.NS.{Vocab, BielVocab, StatBezirk, Bezirk, Cube, SDMX, Wikidata}
+
+  import RDF.Sigils
+  import LOSDB.Dataset
 
   def extract_dataset(input_file, opts) do
     records =
-      raw_records(input_file)
+      raw_csv_records(input_file)
       |> Enum.filter(fn [_, _, _, _, _, _, geschlecht, _, _] -> geschlecht != "3" end)
 
-    cube_dataset = cube_dataset(records, opts)
+    cube_dataset =
+      opts
+      |> Keyword.put(:subjects, [
+        # Population and migration
+        ~I<http://purl.org/linked-data/sdmx/2009/subject#1.1>,
+        # Regional and small area statistics
+        ~I<http://purl.org/linked-data/sdmx/2009/subject#3.2>,
+        # Bielefeld
+        Wikidata.Q2112
+      ])
+      |> cube_dataset()
 
     metadata =
       RDF.Graph.new()
@@ -23,43 +34,10 @@ defmodule LOSDB.Dataset.Population do
         RDF.Graph.add(graph, cube_observation(record, cube_dataset.subject))
       end)
 
-    cond do
-      output_file = Keyword.get(opts, :out) -> write_dataset(graph, opts)
-      true -> graph
+    case Keyword.pop(opts, :write, false) do
+      {false, _opts} -> graph
+      {true, opts} -> write(graph, opts)
     end
-  end
-
-  defp write_dataset(graph, opts) do
-    dest = Keyword.get(opts, :out) <> "/" <> Keyword.get(opts, :name) <> ".ttl"
-
-    graph
-    |> RDF.Turtle.write_file!(dest,
-      # TODO: Remove force
-      force: true,
-      prefixes: LOSDB.NS.prefixes()
-    )
-  end
-
-  # recommend core set of metadata terms: https://www.w3.org/TR/vocab-data-cube/#metadata
-  def cube_dataset(records, opts) do
-    dataset_iri(opts)
-    |> RDF.type(Cube.DataSet)
-    |> DC.publisher(LOSDB.statistikstelle_id())
-    |> DC.subject(
-      # Population and migration
-      ~I<http://purl.org/linked-data/sdmx/2009/subject#1.1>,
-      # Regional and small area statistics
-      ~I<http://purl.org/linked-data/sdmx/2009/subject#3.2>,
-      # Bielefeld
-      Wikidata.Q2112
-    )
-    |> DC.license(~I<http://creativecommons.org/licenses/by-sa/4.0/>)
-  end
-
-  def dataset_iri(opts) do
-    # TODO: mint URI
-    Keyword.get(opts, :name)
-    |> RDF.bnode()
   end
 
   def cube_observation(
@@ -95,7 +73,7 @@ defmodule LOSDB.Dataset.Population do
 
   def extract_bezirke(input_file) do
     input_file
-    |> raw_records()
+    |> raw_csv_records()
     # TODO: skip already existing
     |> Enum.reduce(RDF.Graph.new(), fn record, graph ->
       RDF.Graph.add(graph, bezirk(record))
@@ -110,12 +88,6 @@ defmodule LOSDB.Dataset.Population do
       force: true,
       prefixes: LOSDB.NS.prefixes()
     )
-  end
-
-  def raw_records(file) do
-    file
-    |> File.read!()
-    |> Parser.parse_string()
   end
 
   def bezirk([_, stad_name, _stad_id_k, stat_name, stat_id, _stat_id_k, _, _, _]) do
