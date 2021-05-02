@@ -1,0 +1,32 @@
+Spalte;Typ;Beschreibung;Quelle
+stichtag;numerisch;TTMMJJJJ;Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0)
+jahr;numerisch;Berichtsjahr;Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0)
+stat_name;Zeichenfolge;Name der Statistischen Bezirke;Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0)
+stat_id;Zeichenfolge;ID der Statistischen Bezirke;Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0)
+
+HH_insgesamt;numerisch;"Anzahl der Privathaushalte insgesamt ohne Gemeinschaftsunterkünfte; Berechnung mit HHgen";Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0)
+
+EinPersonenHaushalte;numerisch;Einpersonenhaushalte;Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0)
+ZweiPersonenHaushalte;numerisch;Zweipersonenhaushalte;Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0)
+DreiOderMehrPersonenHaushalte;numerisch;Haushalte mit drei oder mehr Personen;Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0)
+
+Haushalt_mitKindern_insgesamt;numerisch;Haushalte mit Kindern insgesamt;Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0)
+HH_keineKinder;numerisch;Haushalte ohne Kinder insgesamt;Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0)
+HH_ein_Kind;numerisch;Haushalte mit einem Kind;Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0)
+HH_zwei_Kinder;numerisch;Haushalte mit zwei Kindern;Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0)
+HH_drei_oder_mehrKindern;numerisch;Haushalte mit drei oder mehr Kindern;Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0)
+
+HH_EhePaareohneKinder_evtl_weiterePersonen;numerisch;Ehe-/Paare ohne Kind(er), eventuell weitere Personen;Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0)
+HH_EhePaaremitKindern_evtl_weiterePersonen;numerisch;Ehe-/Paare mit Kind(er), eventuell weitere Personen;Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0)
+HH_Alleinerziehende_ohne_weiterePersonen;numerisch;Haushalte Alleinerziehender mit Kind(ern) ohne weitere Personen;Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0)
+HH_SonstigeMehrpersonenhaushalte;numerisch;Sonstige Mehrpersonenhaushalte;Stadt Bielefeld, Presseamt/Statistikstelle (CC BY-SA 4.0)
+;;;
+Das Einwohnermelderegister enthält keine direkt abrufbaren Angaben über die Haushalte an einer;;;
+  Wohnadresse. Deshalb werden die Indizien für das Zusammenleben von Personen auf;;;
+  indirektem Wege aus dengespeicherten Meldedaten gewonnen. Das Rechenverfahren zur;;;
+  systematischen Nutzung dieser Indizien heißt “Haushaltegenerierung”. Hierbei werden die an;;;
+  derselben Wohnadresse gemeldeten Personen aufgrund von Merkmalsvergleichen zu Haushalten;;;
+  gruppiert (Wohnhaushaltsprinzip). Mit Hilfe des komplexen statistischen Rechenverfahrens zur;;;
+  Haushaltegenerierung werden Näherungswerte zur Anzahl und Struktur der Haushalte ermittelt.;;;
+  Ab dem Jahr 2010 wird die Haushaltsgenerierung nur auf Personen in Privathaushalten;;;
+  (ohne Personen in Gemeinschaftsunterkünften) bezogen.;;;
