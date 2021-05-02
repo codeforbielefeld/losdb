@@ -63,7 +63,7 @@ defmodule LOSDB.Dataset.Population do
   end
 
   def cube_observation(
-        [stichtag, _, _, _, _, stat_id_k, geschlecht, age4, einwohnerzahl],
+        [stichtag, _, _, _, stat_id, _, geschlecht, age4, einwohnerzahl],
         dataset
       ) do
     RDF.bnode()
@@ -71,7 +71,7 @@ defmodule LOSDB.Dataset.Population do
     |> Cube.dataSet(dataset)
     |> Vocab.population(XSD.integer(einwohnerzahl))
     |> Vocab.refPeriod(year(stichtag))
-    |> Vocab.place(StatBezirk.iri(stat_id_k))
+    |> Vocab.place(StatBezirk.iri(stat_id))
     |> Vocab.gender(geschlecht(geschlecht))
     |> Vocab.ageGroup(ageGroup(age4))
   end
@@ -118,7 +118,7 @@ defmodule LOSDB.Dataset.Population do
     |> Parser.parse_string()
   end
 
-  def bezirk([_, stad_name, stad_id_k, stat_name, stat_id, stat_id_k, _, _, _]) do
+  def bezirk([_, stad_name, _stad_id_k, stat_name, stat_id, _stat_id_k, _, _, _]) do
     RDF.Graph.new()
     |> RDF.Graph.add(
       stad_name
