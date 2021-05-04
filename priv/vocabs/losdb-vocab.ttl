@@ -139,6 +139,38 @@
         ; rdfs:range :PeoplePerHousehold
 .
 
+:ChildrenPerHouseholdScheme a skos:ConceptScheme .
+
+:ChildrenPerHousehold a rdfs:Class, owl:Class
+        ; rdfs:subClassOf skos:Concept
+        ; rdfs:label "Kinder per Haushalt"
+.
+
+:NoChildHousehold a skos:Concept, :ChildrenPerHousehold
+        ; rdfs:label "Kein-Kind-Haushalt"@de
+        ; skos:inScheme :ChildrenPerHouseholdScheme
+.
+
+:OneChildHousehold a skos:Concept, :ChildrenPerHousehold
+        ; rdfs:label "Ein-Kind-Haushalt"@de
+        ; skos:inScheme :ChildrenPerHouseholdScheme
+.
+
+:TwoChildrenHousehold a skos:Concept, :ChildrenPerHousehold
+        ; rdfs:label "Zwei-Kinder-Haushalt"@de
+        ; skos:inScheme :ChildrenPerHouseholdScheme
+.
+
+:ThreeOrMoreChildrenHousehold a skos:Concept, :ChildrenPerHousehold
+        ; rdfs:label "Drei- oder Mehr-Kinder-Haushalt"@de
+        ; skos:inScheme :ChildrenPerHouseholdScheme
+.
+
+:childrenPerHousehold a qb:DimensionProperty, qb:CodedProperty
+        ; qb:codeList :ChildrenPerHouseholdScheme
+        ; rdfs:range :ChildrenPerHousehold
+.
+
 :numberOfHouseholds a rdf:Property, qb:MeasureProperty
         ; rdfs:label "Anzahl Haushalte"@de
         ; rdfs:subPropertyOf sdmx-measure:obsValue
@@ -151,7 +183,7 @@
         ; qb:component [ qb:dimension :place; qb:order 2 ]
         ; qb:component [ qb:dimension :peoplePerHousehold; qb:order 3 ]
         # The measure
-        ; qb:component [ qb:measure :numberOfHouseholds]
+        ; qb:component [ qb:measure :numberOfHouseholds ]
         # The attributes
         ; qb:component [
                            qb:attribute dct:publisher ;
@@ -167,4 +199,28 @@
                            qb:componentRequired "true"^^xsd:boolean ;
                            qb:componentAttachment qb:DataSet
                        ]
+.
+
+:ChildrenPerHouseholdDataStructure a qb:DataStructureDefinition
+       # The dimensions
+       ; qb:component [ qb:dimension :refPeriod; qb:order 1 ]
+       ; qb:component [ qb:dimension :place; qb:order 2 ]
+       ; qb:component [ qb:dimension :childrenPerHousehold; qb:order 3 ]
+       # The measure
+       ; qb:component [ qb:measure :numberOfHouseholds ]
+       # The attributes
+       ; qb:component [
+                          qb:attribute dct:publisher ;
+                          qb:componentAttachment qb:DataSet
+                      ]
+       ; qb:component [
+                          qb:attribute dct:issued ;
+                          qb:componentRequired "true"^^xsd:boolean ;
+                          qb:componentAttachment qb:DataSet
+                      ]
+       ; qb:component [
+                          qb:attribute dct:license ;
+                          qb:componentRequired "true"^^xsd:boolean ;
+                          qb:componentAttachment qb:DataSet
+                      ]
 .
