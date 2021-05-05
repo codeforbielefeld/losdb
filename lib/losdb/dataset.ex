@@ -19,7 +19,7 @@ defmodule LOSDB.Dataset do
 
   def iri(opts) do
     # TODO: mint URI
-    Keyword.get(opts, :name)
+    Keyword.get(opts, :dataset_name)
     |> RDF.bnode()
   end
 
@@ -31,7 +31,8 @@ defmodule LOSDB.Dataset do
 
   def write(graph, opts) do
     dest =
-      Keyword.get(opts, :path, @default_output_dir) <> "/" <> Keyword.get(opts, :name) <> ".ttl"
+      Keyword.get(opts, :path, @default_output_dir) <>
+        "/" <> Keyword.get(opts, :dataset_name) <> ".ttl"
 
     graph
     |> RDF.Turtle.write_file!(dest,

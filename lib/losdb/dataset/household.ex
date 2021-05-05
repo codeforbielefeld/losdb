@@ -6,6 +6,16 @@ defmodule LOSDB.Dataset.Household do
   import RDF.Sigils
   import LOSDB.Dataset
 
+  @datasource "data/haushalte/haushalte2009bis2020.csv"
+  @dataset_name "haushalte_anzahl_personen"
+
+  def extract_dataset(opts \\ []) do
+    extract_dataset(
+      @datasource,
+      Keyword.put_new(opts, :dataset_name, @dataset_name)
+    )
+  end
+
   def extract_dataset(input_file, opts) do
     records = raw_csv_records(input_file)
 

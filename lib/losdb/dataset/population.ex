@@ -7,6 +7,16 @@ defmodule LOSDB.Dataset.Population do
   import RDF.Sigils
   import LOSDB.Dataset
 
+  @datasource "data/bev_struktur/bielefeld_bev_struktur_2000bis2019.csv"
+  @dataset_name "bev_struktur"
+
+  def extract_dataset(opts \\ []) do
+    extract_dataset(
+      @datasource,
+      Keyword.put_new(opts, :dataset_name, @dataset_name)
+    )
+  end
+
   def extract_dataset(input_file, opts) do
     records =
       raw_csv_records(input_file)
@@ -70,6 +80,10 @@ defmodule LOSDB.Dataset.Population do
   ################################################################################################
   # Extraktion der Bezirke
   ################################################################################################
+
+  def extract_bezirke() do
+    extract_bezirke(@datasource, "output/bielefeld-bezirke.ttl")
+  end
 
   def extract_bezirke(input_file) do
     input_file
