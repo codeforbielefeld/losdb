@@ -171,11 +171,43 @@
         ; rdfs:range :ChildrenPerHousehold
 .
 
+:HouseholdCommunityScheme a skos:ConceptScheme .
+
+:HouseholdCommunity a rdfs:Class, owl:Class
+                            ; rdfs:subClassOf skos:Concept
+                            ; rdfs:label "Wohngemeinschaft"
+.
+
+:CoupleWithoutKidsHousehold a skos:Concept, :HouseholdCommunity
+                            ; rdfs:label "Ehe-/Paare ohne Kind(er), eventuell weitere Personen"@de
+                            ; skos:inScheme :HouseholdCommunityScheme
+.
+
+:CoupleWithKidsHousehold a skos:Concept, :HouseholdCommunity
+                            ; rdfs:label "Ehe-/Paare mit Kind(er), eventuell weitere Personen"@de
+                            ; skos:inScheme :HouseholdCommunityScheme
+.
+
+:SingleParentHousehold a skos:Concept, :HouseholdCommunity
+                            ; rdfs:label "Haushalte Alleinerziehender mit Kind(ern) ohne weitere Personen"@de
+                            ; skos:inScheme :HouseholdCommunityScheme
+.
+:OtherMultiPersonHousehold a skos:Concept, :HouseholdCommunity
+                            ; rdfs:label "Sonstige Mehrpersonenhaushalte"@de
+                            ; skos:inScheme :HouseholdCommunityScheme
+.
+
+:householdCommunity a qb:DimensionProperty, qb:CodedProperty
+                            ; qb:codeList :HouseholdCommunityScheme
+                            ; rdfs:range :HouseholdCommunity
+.
+
 :numberOfHouseholds a rdf:Property, qb:MeasureProperty
         ; rdfs:label "Anzahl Haushalte"@de
         ; rdfs:subPropertyOf sdmx-measure:obsValue
         ; rdfs:range xsd:integer
 .
+
 
 :PeoplePerHouseholdDataStructure a qb:DataStructureDefinition
         # The dimensions
@@ -206,6 +238,30 @@
        ; qb:component [ qb:dimension :refPeriod; qb:order 1 ]
        ; qb:component [ qb:dimension :place; qb:order 2 ]
        ; qb:component [ qb:dimension :childrenPerHousehold; qb:order 3 ]
+       # The measure
+       ; qb:component [ qb:measure :numberOfHouseholds ]
+       # The attributes
+       ; qb:component [
+                          qb:attribute dct:publisher ;
+                          qb:componentAttachment qb:DataSet
+                      ]
+       ; qb:component [
+                          qb:attribute dct:issued ;
+                          qb:componentRequired "true"^^xsd:boolean ;
+                          qb:componentAttachment qb:DataSet
+                      ]
+       ; qb:component [
+                          qb:attribute dct:license ;
+                          qb:componentRequired "true"^^xsd:boolean ;
+                          qb:componentAttachment qb:DataSet
+                      ]
+.
+
+:HouseholdCommunityDataStructure a qb:DataStructureDefinition
+       # The dimensions
+       ; qb:component [ qb:dimension :refPeriod; qb:order 1 ]
+       ; qb:component [ qb:dimension :place; qb:order 2 ]
+       ; qb:component [ qb:dimension :householdCommunity; qb:order 3 ]
        # The measure
        ; qb:component [ qb:measure :numberOfHouseholds ]
        # The attributes
