@@ -5,7 +5,7 @@ defmodule LOSDB.Dataset.Household do
   import RDF.Sigils
   import LOSDB.Dataset
 
-  @datasource "data/haushalte/haushalte2009bis2020.csv"
+  @datasource "priv/data/haushalte/haushalte2009bis2020.csv"
   @anzahl_personen_dataset_name :haushalte_anzahl_personen
   @anzahl_kinder_dataset_name :haushalte_anzahl_kinder
   @wohngemeinschaft_data_name :haushalte_wohngemeinschaften

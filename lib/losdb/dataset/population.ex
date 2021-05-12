@@ -7,7 +7,7 @@ defmodule LOSDB.Dataset.Population do
   import RDF.Sigils
   import LOSDB.Dataset
 
-  @datasource "data/bev_struktur/bielefeld_bev_struktur_2000bis2019.csv"
+  @datasource "priv/data/bev_struktur/bielefeld_bev_struktur_2000bis2019.csv"
   @dataset_name "bev_struktur"
 
   def extract_dataset(opts \\ []) do
