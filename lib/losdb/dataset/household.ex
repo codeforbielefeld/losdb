@@ -1,7 +1,6 @@
 defmodule LOSDB.Dataset.Household do
   alias RDF.XSD
-  alias RDF.NS.{RDFS}
-  alias LOSDB.NS.{Vocab, BielVocab, StatBezirk, Bezirk, Cube, SDMX, Wikidata}
+  alias LOSDB.NS.{Vocab, StatBezirk, Cube, Wikidata}
 
   import RDF.Sigils
   import LOSDB.Dataset

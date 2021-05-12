@@ -1,6 +1,6 @@
 defmodule LOSDB.Dataset do
-  alias LOSDB.NS.{Cube, SDMX, Wikidata}
-  alias RDF.Vocab.{Schema, DC, CC}
+  alias LOSDB.NS.{Cube}
+  alias RDF.Vocab.{DC}
 
   import RDF.Sigils
 

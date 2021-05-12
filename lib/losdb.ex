@@ -1,6 +1,6 @@
 defmodule LOSDB do
   alias RDF.NS.{RDFS}
-  alias RDF.Vocab.{DC, FOAF, Org, Schema}
+  alias RDF.Vocab.{FOAF, Org, Schema}
 
   @code4bielefeld_base "http://know.bielefeld.de/"
   @kg_base @code4bielefeld_base <> ""
