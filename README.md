@@ -7,3 +7,32 @@ Das macht Linked Data auch für statistische Daten interessant. Mehr Infos dazu 
 Grundlage ist der [W3C-Standard RDF](https://www.w3.org/RDF/) (Resource Description Framwework). Für den Anwendungsfall statistische Daten haben wir das [RDF Data Cube Vocabulary](https://www.w3.org/TR/vocab-data-cube/) genutzt.
 
 Für Interessierte an Linked Data ist dieser [Kurs vom Hasso-Plattner-Institut](https://open.hpi.de/courses/semanticweb2016?locale=de) zu empfehlen. Außerdem freuen wir uns natürlich über Fragen, Anregungen und neue Mitglieder.
+
+
+## Datasets
+
+Derzeit können nur die rohen RDF-Daten im Turtle-Format über dieses Repo ([`output`-Ordner](output/)) zugegriffen werden.
+
+- [Bevölkerungsstruktur](output/bev_struktur.ttl)
+- [Anzahl Personen je Haushalt](output/haushalte_anzahl_personen.ttl)
+- [Anzahl der Kinder je Haushalt](output/haushalte_anzahl_kinder.ttl)
+- [Wohngemeinschaft je Haushalt](output/haushalte_wohngemeinschaften.ttl)
+
+Die RDF Data Cube Datenstruktur-Definitionen der Datasets ist in [`losdb-vocab.ttl`](priv/vocabs/losdb-vocab.ttl) zu finden.
+
+
+## Generierung der Datasets
+
+Anforderung: eine installierte [Elixir](https://elixir-lang.org/install.html)-Umgebung.
+
+Installation der abhängigen Pakete mit:
+
+```shell
+$ mix deps.get
+```
+
+Damit können die Datasets mit dem folgenden Kommando in den `output`-Ordner generiert werden:
+
+```shell
+$ mix generate
+```
