@@ -35,7 +35,7 @@ defmodule LOSDB.Dataset.Population do
       |> cube_dataset()
 
     metadata =
-      RDF.Graph.new()
+      RDF.Graph.new(base_iri: cube_dataset.subject)
       |> RDF.Graph.add(cube_dataset)
       |> RDF.Graph.add(LOSDB.statistikstelle())
 

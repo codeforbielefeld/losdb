@@ -2,16 +2,15 @@ defmodule LOSDB do
   alias RDF.NS.{RDFS}
   alias RDF.Vocab.{FOAF, Org, Schema}
 
-  @code4bielefeld_base "http://know.bielefeld.de/"
-  @kg_base @code4bielefeld_base <> ""
+  @code4bielefeld_base "http://bielefeld.codefor.de/"
+  @kg_base @code4bielefeld_base <> "kg/"
   @losdb_base @code4bielefeld_base <> "losdb/"
 
   def code4bielefeld_base, do: @code4bielefeld_base
   def kg_base, do: @kg_base
   def losdb_base, do: @losdb_base
 
-  # TODO: introduce vocabulary namespace
-  def statistikstelle_id, do: RDF.iri(@code4bielefeld_base <> "statistikstelle")
+  def statistikstelle_id, do: RDF.iri(@kg_base <> "Stadt-Bielefeld-Statistikstelle")
 
   def statistikstelle do
     address =

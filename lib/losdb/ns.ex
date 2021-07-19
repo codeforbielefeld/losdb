@@ -1,14 +1,20 @@
 defmodule LOSDB.NS do
   use RDF.Vocabulary.Namespace
 
+  defmodule Dataset do
+    @base LOSDB.losdb_base() <> "datasets/"
+    def base(), do: @base
+    def iri(name), do: RDF.iri(@base <> to_string(name))
+  end
+
   defmodule Bezirk do
-    @base LOSDB.kg_base() <> "bezirk/"
+    @base LOSDB.kg_base() <> "bezirke/"
     def base(), do: @base
     def iri(name), do: RDF.iri(@base <> to_string(name))
   end
 
   defmodule StatBezirk do
-    @base LOSDB.kg_base() <> "stat_bezirk/"
+    @base LOSDB.kg_base() <> "stat_bezirke/"
     def base(), do: @base
     def iri(id), do: RDF.iri(@base <> to_string(id))
   end
@@ -17,7 +23,7 @@ defmodule LOSDB.NS do
   The Linked Open Statistical Data Bielefeld vocabulary.
   """
   defvocab Vocab,
-    base_iri: "http://example.com/code4bielefeld/losdb/vocab#",
+    base_iri: "http://bielefeld.codefor.de/losdb/vocab#",
     file: "losdb-vocab.ttl",
     alias: [
       Age18to64: "Age18-64",
@@ -25,10 +31,10 @@ defmodule LOSDB.NS do
     ]
 
   @vocabdoc """
-  The Linked Open Statistical Data Bielefeld vocabulary.
+  The Code for Bielefeld vocabulary.
   """
   defvocab BielVocab,
-    base_iri: "http://example.com/code4bielefeld/kg/vocab#",
+    base_iri: "http://bielefeld.codefor.de/kg/vocab#",
     terms: ~w[
       bezirk
     ]

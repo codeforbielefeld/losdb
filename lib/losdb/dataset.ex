@@ -1,4 +1,5 @@
 defmodule LOSDB.Dataset do
+  alias LOSDB.NS
   alias LOSDB.NS.{Cube}
   alias RDF.Vocab.{DC}
 
@@ -10,17 +11,12 @@ defmodule LOSDB.Dataset do
   def cube_dataset(opts) do
     subjects = Keyword.get(opts, :subjects, [Wikidata.Q2112])
 
-    iri(opts)
+    Keyword.get(opts, :dataset_name)
+    |> NS.Dataset.iri()
     |> RDF.type(Cube.DataSet)
     |> DC.publisher(LOSDB.statistikstelle_id())
     |> DC.subject(subjects)
     |> DC.license(~I<http://creativecommons.org/licenses/by-sa/4.0/>)
-  end
-
-  def iri(opts) do
-    # TODO: mint URI
-    Keyword.get(opts, :dataset_name)
-    |> RDF.bnode()
   end
 
   def raw_csv_records(file) do
