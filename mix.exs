@@ -5,7 +5,7 @@ defmodule LOSDB.MixProject do
     [
       app: :losdb,
       version: "0.1.0",
-      elixir: "~> 1.10",
+      elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -19,9 +19,9 @@ defmodule LOSDB.MixProject do
 
   defp deps do
     [
-      {:rdf, "~> 0.9"},
-      {:rdf_vocab, "~> 0.2"},
-      {:nimble_csv, "~> 0.6"},
+      {:rdf, "~> 2.0"},
+      {:foaf, "~> 0.1"},
+      {:nimble_csv, "~> 1.0"},
       {:timex, "~> 3.6"}
     ]
   end

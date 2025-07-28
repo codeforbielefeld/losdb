@@ -1,6 +1,6 @@
 defmodule LOSDB do
-  alias RDF.NS.{RDFS}
-  alias RDF.Vocab.{FOAF, Org, Schema}
+  alias RDF.NS.RDFS
+  alias LOSDB.NS.{Org, SchemaOrg}
 
   @code4bielefeld_base "http://bielefeld.codefor.de/"
   @kg_base @code4bielefeld_base <> "kg/"
@@ -15,17 +15,17 @@ defmodule LOSDB do
   def statistikstelle do
     address =
       RDF.bnode()
-      |> RDF.type(Schema.PostalAddress)
-      |> Schema.streetAddress("Niederwall 25")
-      |> Schema.postalCode("33602")
-      |> Schema.addressLocality("Bielefeld")
+      |> RDF.type(SchemaOrg.PostalAddress)
+      |> SchemaOrg.streetAddress("Niederwall 25")
+      |> SchemaOrg.postalCode("33602")
+      |> SchemaOrg.addressLocality("Bielefeld")
 
     [
       address,
       statistikstelle_id()
-      |> RDF.type(Org.Organization, Schema.GovernmentOrganization, FOAF.Agent)
+      |> RDF.type([Org.Organization, SchemaOrg.GovernmentOrganization, FOAF.Agent])
       |> RDFS.label("Stadt Bielefeld, Presseamt/Statistikstelle")
-      |> Schema.address(address.subject)
+      |> SchemaOrg.address(address.subject)
       |> RDFS.seeAlso("https://www.bielefeld.de/de/rv/ds_stadtverwaltung/presse/stas/")
     ]
   end

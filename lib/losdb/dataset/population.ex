@@ -1,8 +1,7 @@
 defmodule LOSDB.Dataset.Population do
   alias RDF.XSD
   alias RDF.NS.{RDFS}
-  alias RDF.Vocab.Schema
-  alias LOSDB.NS.{Vocab, BielVocab, StatBezirk, Bezirk, Cube, SDMX, Wikidata}
+  alias LOSDB.NS.{Vocab, BielVocab, StatBezirk, Bezirk, Cube, SDMX, Wikidata, SchemaOrg}
 
   import RDF.Sigils
   import LOSDB.Dataset
@@ -66,6 +65,7 @@ defmodule LOSDB.Dataset.Population do
 
   def year(date) do
     (date |> Timex.parse!("{0D}{0M}{YYYY}") |> Timex.to_date()).year
+    |> to_string()
     |> RDF.literal(datatype: RDF.NS.XSD.gYear())
   end
 
@@ -109,13 +109,13 @@ defmodule LOSDB.Dataset.Population do
     |> RDF.Graph.add(
       stad_name
       |> Bezirk.iri()
-      |> RDF.type(Schema.AdministrativeArea)
+      |> RDF.type(SchemaOrg.AdministrativeArea)
       |> RDFS.label(stad_name)
     )
     |> RDF.Graph.add(
       stat_id
       |> StatBezirk.iri()
-      |> RDF.type(Schema.Place)
+      |> RDF.type(SchemaOrg.Place)
       |> RDFS.label(stat_name)
       |> BielVocab.bezirk(Bezirk.iri(stad_name))
     )

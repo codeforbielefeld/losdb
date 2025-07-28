@@ -81,6 +81,40 @@ defmodule LOSDB.NS do
       ]
   end
 
+  @vocabdoc """
+  The Dublin Core Metadata Terms vocabulary.
+
+  See <http://purl.org/dc/terms/>
+  """
+  defvocab DC,
+    base_iri: "http://purl.org/dc/terms/",
+    file: "ext/dcterms.nt",
+    alias: [
+      ISO639_2: "ISO639-2",
+      ISO639_3: "ISO639-3"
+    ],
+    case_violations: :fail
+
+  @vocabdoc """
+  The Schema.org vocabulary.
+
+  See <http://schema.org>
+  """
+  defvocab SchemaOrg,
+    base_iri: "http://schema.org/",
+    file: "ext/schema.nt",
+    case_violations: :ignore
+
+  @vocabdoc """
+  The Organization Ontology.
+
+  See <https://www.w3.org/TR/vocab-org/>
+  """
+  defvocab Org,
+    base_iri: "http://www.w3.org/ns/org#",
+    file: "ext/org.nt",
+    case_violations: :fail
+
   @prefixes RDF.PrefixMap.new(
               losdb: Vocab,
               bi: BielVocab,
@@ -93,11 +127,11 @@ defmodule LOSDB.NS do
               skos: RDF.NS.SKOS,
               cube: Cube,
               sdmx_code: SDMX.Code,
-              schema: RDF.Vocab.Schema,
+              schema: SchemaOrg,
               wd: Wikidata,
-              dc: RDF.Vocab.DC,
-              foaf: RDF.Vocab.FOAF,
-              org: RDF.Vocab.Org
+              dc: DC,
+              foaf: FOAF,
+              org: Org
             )
 
   def prefixes, do: @prefixes
